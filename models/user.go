@@ -17,9 +17,8 @@ type User struct {
 	Email string `orm:"unique;size(128)" form:"email" valid:"Email"`
 	Mobile string `orm:"unique;size(128)" form:"mobile" valid:"Mobile"`
 	Password string `orm:"size(128)" form:"password" valid:"Required;MaxSize(20);MinSize(6)"`
-	//ConfirmPassword string `orm:"size(128)" form:"-" valid:"Required;MaxSize(20);MinSize(6)"`
 	RememberToken string `orm:"size(128)"`
-	CreatedAt int
+	CreatedAt time.Time
 	UpdatedAt time.Time
 }
 

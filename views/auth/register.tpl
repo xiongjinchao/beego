@@ -34,7 +34,7 @@
     </div>
 
     <div class="register-box-body">
-        <p class="login-box-msg">Register a new membership{{.errors}}</p>
+        <p class="login-box-msg">Register a new membership</p>
 
         <form id="user" action="/register" method="post">
             <input type="hidden" name="_xsrf" value="{{.xsrf_token}}" />
@@ -52,13 +52,19 @@
                     <p class="help-block help-block-error">{{.errors.email}}</p>
                 {{end}}
             </div>
-            <div class="form-group has-feedback">
+            <div class="form-group has-feedback {{if .errors.password}} has-error {{end}}">
                 <input type="password" name="password" class="form-control" placeholder="Password" value="123456">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                {{if .errors.password}}
+                    <p class="help-block help-block-error">{{.errors.password}}</p>
+                {{end}}
             </div>
-            <div class="form-group has-feedback">
+            <div class="form-group has-feedback {{if .errors.confirm_password}} has-error {{end}}">
                 <input type="password" name="confirm_password" class="form-control" placeholder="Retype password" value="123456">
                 <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+                {{if .errors.confirm_password}}
+                    <p class="help-block help-block-error">{{.errors.confirm_password}}</p>
+                {{end}}
             </div>
             <div class="row">
                 <div class="col-xs-8">

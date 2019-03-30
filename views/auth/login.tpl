@@ -39,13 +39,19 @@
 
         <form method="POST" action="/login">
             <input type="hidden" name="_xsrf" value="{{.xsrf_token}}" />
-            <div class="form-group has-feedback">
-                <input type="email" name="email" class="form-control" placeholder="Email">
+            <div class="form-group has-feedback {{if .errors.name}} has-error {{end}}">
+                <input type="text" name="name" class="form-control" placeholder="Name">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                {{if .errors.name}}
+                    <p class="help-block help-block-error">{{.errors.name}}</p>
+                {{end}}
             </div>
-            <div class="form-group has-feedback">
+            <div class="form-group has-feedback {{if .errors.password}} has-error {{end}}">
                 <input type="password" name="password" class="form-control" placeholder="Password">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                {{if .errors.password}}
+                    <p class="help-block help-block-error">{{.errors.password}}</p>
+                {{end}}
             </div>
             <div class="row">
                 <div class="col-xs-8">
