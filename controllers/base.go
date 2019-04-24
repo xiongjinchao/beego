@@ -12,19 +12,17 @@ type BaseController struct {
 func (c *BaseController) Prepare() {
 	c.Layout = "layouts/admin-lte.tpl"
 
-	v := c.GetSession("user")
-	if v == nil{
+	v := c.GetSession("auth")
+	if v == nil {
 		c.Ctx.Redirect(302, "/login")
 	}
-	user := make(map[string]interface{})
-    err := json.Unmarshal([]byte(v.(string)), &user)
+	auth := make(map[string]interface{})
+	err := json.Unmarshal([]byte(v.(string)), &auth)
 	if err != nil {
-        c.Ctx.Redirect(302, "/login")
-    }
+		c.Ctx.Redirect(302, "/login")
+	}
 
-	c.Data["user"] = user
+	c.Data["auth"] = auth
 	c.Data["xsrf_token"] = c.XSRFToken()
 
-	c.Data["Website"] = "beego.user.me"
-	c.Data["Email"] = "astaxie@gmail.com"
 }
