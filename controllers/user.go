@@ -4,10 +4,11 @@ import (
 	"fmt"
 	"strconv"
 
+	models "beego/models"
+
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	"github.com/astaxie/beego/validation"
-	models "hello/models"
 )
 
 type UserController struct {
