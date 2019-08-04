@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strconv"
 
-	models "github.com/xiongjinchao/beego/models"
+	models "beego/models"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"

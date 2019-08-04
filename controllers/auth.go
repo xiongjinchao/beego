@@ -1,10 +1,10 @@
 package controllers
 
 import (
+	models "beego/models"
 	"crypto/sha1"
 	"encoding/hex"
 	"encoding/json"
-	models "github.com/xiongjinchao/beego/models"
 	"strconv"
 	"time"
 
